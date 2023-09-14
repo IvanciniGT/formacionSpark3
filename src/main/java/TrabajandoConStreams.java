@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class TrabajandoConStreams {
@@ -33,11 +34,11 @@ public class TrabajandoConStreams {
 
         numeros.parallelStream()                        // Para cada numero
         //spark.parallelize(numero)
-                .map( n -> n*3 )                        // Lo multiplico por 3
-                .filter( n -> n % 2 == 0 )              // Me quedo con los pares
-                .sequential()                           // Vuelvo a un stream secuencial
-                .sorted( )                              // Los ordeno
-                .forEach( System.out::println );        // Y lo imprimo
+                .map( n -> n*3 )                        // Java ! Apunta multiplicar por 3 cada numero
+                .filter( n -> n % 2 == 0 )              // Java ! Apunta que me quiero quedar solo con los pares
+                .sequential()                           // Java ! Apunta que quiero que vuelvas a ser un stream secuencial
+                .sorted( )                              // Java ! Apunta que quiero que ordenes los datos
+                .forEach( System.out::println );        // ahora! a por ello ! Multiplica, filtra, ordena y saca por pantalla
 
         // Esto también puedo hacerlo con programación imperativa
         // Quiero coger los números, multiplicarlos por 3, quitar los impares y ordenarlos... luego los saco por pantalla
@@ -65,6 +66,13 @@ public class TrabajandoConStreams {
         // Y un hilo solo usa un core
         // Si quiero sacarle partido a mi máquina... y acabar hoy... y de paso cenar (huevos)
         // Me toca abrir hilos... y eso es MUY COMPLEJO EN JAVA
+
+        System.out.println(numeros);
+        Optional<Integer> total = numeros.stream()
+                .reduce( (a, b) -> a + b );
+
+        System.out.println(total);
+
     }
 
     public static int triple(int a){

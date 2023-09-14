@@ -77,7 +77,7 @@ Hadoop nos ofrece 3 cositas:
 - YARN -> Programa capaz de controlar todas esas maquinitas... y saber si están operativas.. si se han caído...
 - HDFS: Hadoop File System
   Un sistema de archivos distribuido. Coge un archivo GRANDE y lo parte en trozos (60Mb)
-  Y cada trozo lo guardo en en al menos 3 computadores diferentes
+  Y cada trozo lo guardo en al menos 3 computadores diferentes
 - Modelo de procesamiento MapReduce: Forma de procesar programas que manipulan datos de forma distribuida
 
 Pero... me temo.. que al final.. para qué vale un Sistema Operativo? Windows
@@ -88,10 +88,10 @@ Y empieza a salir mucho software que es capaz de trabajar sobre un cluster que t
 BBDD BigData:
 - Casandra
 - Hive
-  Librerías para procesar y manipular datos:
+Librerías para procesar y manipular datos:
 - Spark
 - Storm
-  Herramientas de mensajería:
+Herramientas de mensajería:
 - Kafka
 
 # Spark
@@ -180,6 +180,7 @@ texto = "ADIOS";
 - texto         -> Despega la variable "texto" de donde estaba
 - =             -> Y asigna esa variable al valor adios
   "HOLA" se acaba de convertir en BASURA -> GARBAGE.... GARBAGE COLLECTOR (JVM)
+
 # Java Stream
 
 Es un tipo de objeto nuevo en Java 1.8. Está en el paquete java.util.stream
@@ -197,9 +198,12 @@ la palabra Stream por la palabra RDD (que es el objeto equivalente que tiene Spa
 Es una forma de procesar colecciones de datos.
 Consta de 2 tipos de funciones:
 - Funciones de tipo MAP?        Una función que aplico sobre una colección de datos
-  y devuelve OTRA COLECCION DE DATOS
+                                y devuelve OTRA COLECCION DE DATOS
+                                Son funciones que se ejecutan en modo LAZY (vago, perezoso) 
+                                Ejecutar en modo lazy implica que no se ejecutan hasta que no es necesario el resultado
 - Funciones de tipo REDUCE?     Una función que aplico sobre una colección de datos
-  y devuelve ALGO QUE NO ES OTRA COLECCION DE DATOS
+                                y devuelve ALGO QUE NO ES OTRA COLECCION DE DATOS
+                                Disparan la ejecución de los map
 
 # Funciones tipo MAP
 
@@ -221,7 +225,24 @@ La función map me permite generar una nueva colección con los datos originales
 # Funciones tipo REDUCE
 
 ## Función reduce
-## Función sum
+
+Una función reduce toma 2 datos cualesquiera de la colección y los combina en 1 solo dato.
+
+STREAM<INTEGER>  ->  .reduce(   ALGO funcionDeReduccion(Integer dato1, Integer dato2)    )   ->    ALGO
+
+                                (a,b) -> a + b
+
+1 \
+2 / -> 3              \
+3           \          / -> 15      \
+4 \          / -> 12  /              \
+5 / -> 9    /                         - 28
+6  \    /                            /
+7  / -> 13                          /
+
+## Función sum                    
+      .reduce( (a,b) -> a + b )
+## Función count
 ## Función first
 ## Función collect
 ## Función forEach
