@@ -73,6 +73,82 @@ public class TrabajandoConStreams {
 
         System.out.println(total);
 
+        // De momento hemos visto ya algunas funciones tipo map: map, filter, sorted
+        // Pero hay más..
+        // Hay una que usamos bastante: flatMap
+
+        /*
+        Stream   -> .map(doble) -> Stream
+         1                           2
+         2                           4
+         3                           6
+
+        factorizar números en matemáticas:   Si factorizo el 6 =    [2, 3]
+        factorizar números en matemáticas:   Si factorizo el 8 =    [2, 2, 2]
+        factorizar números en matemáticas:   Si factorizo el 12 =   [2, 2, 3]
+
+        Stream    -> .map( factorizar ) -> Stream
+         6                                   [2, 3]
+         8                                   [2, 2, 2]
+         12                                  [2, 2, 3]
+
+                                                PASO PREVIO
+        Stream    -> .flatMap( factorizar ) -> Stream       -> Aplanar ese Stream (descomponer cada lista en sus elementos)
+         6                                   [2, 3]                     2
+         8                                   [2, 2, 2]                  3
+         12                                  [2, 2, 3]                  2
+                                                                        2
+                                                                        2
+                                                                        2
+                                                                        2
+                                                                        3
+
+         Un flatMap primero hace un MAP y luego un FLATTEN
+            La función de transformación que suministre en un flatMap debe devolver un Stream
+
+
+
+        */
+
+        // Imaginad que quiero un Stream de números enteros
+        Stream<Integer> listadoDeNumerosEnteros;
+        // Inventar/Crear Clases para representar los tipos simples... de forma que los pueda meter en Colecciones o suministrarlos como genéricos
+        // int -> Integer
+        // double -> Double
+        // boolean -> Boolean
+        // char -> Character
+
+        // Al menos se tomaron la dignidad de convertir automaticamente los tipos primitivos en sus clases equivalentes
+        // mediante un procedimiento que se llama autoboxing
+        List<Integer> listaDeNumerosEnteros = new ArrayList<>();
+        int numero= 1;
+        listaDeNumerosEnteros.add(numero);  // Se hace un autoboxing
+
+        // Esto mete una sobrecarga brutal en la memoria
+        // Por eso motivo, cuando queremos trabajar con colecciones grandes de datos,
+        // el trabajar con los Tipos Primitivos nos es más interesante, que
+        // trabajar con sus clases equivalentes
+
+        // El los Streams pasa lo mismo, que con las listas normales... y el autoboxing
+
+        // En Java 1.8 se crean una seria de Streams para trabajar con tipos primitivos,
+        // que son mucho más eficientes que los Streams normales equivalentes
+
+        // Stream<Integer> -> IntStream
+        // Stream<Double>  -> DoubleStream
+        // Stream<Boolean> -> BooleanStream
+
+        // Podemos pasar de un Stream<Integer> a un IntStream, mediante un proceso que se llama unboxing
+        // Podemos pasar de un IntStream a un Stream<Integer>, mediante un proceso que se llama boxing
+        // tenemos algunas funciones que nos permiten hacerlo:
+        // .mapToInt()      -> Convierte un Stream<Integer> en un IntStream
+        // .mapToDouble()   -> Convierte un Stream<Integer> o un IntStream en un DoubleStream
+        // Y lo contrario
+        // .boxed()         -> Convierte un IntStream en un Stream<Integer>
+
+        // Hay una función chula que tenemos en los IntStream
+        // .range(0, 10) -> Genera un IntStream con los números del 0 al 9
+
     }
 
     public static int triple(int a){

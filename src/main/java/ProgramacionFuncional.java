@@ -50,7 +50,8 @@ public class ProgramacionFuncional {
 
         // Me temo, que el hecho de que las expresiones LAMBDA sean más cómoda en algunos escenarios...
         // no va a ser su única ventaja. EN SPARK ME INTERESA USAR TANTO COMO PUEDA EXPRESIONES LAMBDAS
-        // Pero... ya veremos por qué
+        // Ya que, la Máquina virtual de Java las crea de forma que son SERIALIZABLES son yo hacer nada
+        // Ademças, el propio código de la función se manda por red.
         imprimirResultadoDeOperacion( n -> n/2 , 10);
     }
 
