@@ -43,9 +43,9 @@ public class CalcularPI  {
         double OTRA_ESTIMACION_DE_PI = IntStream.range(0, numeroDeTrabajadores)    // IntStream     Tengo un alista con todos los trabajadores                                     [0,1,2,3]
                 .map(trabajador -> totalDeDardosPorTrabajador)                     // IntStream     Tengo una lista con el número de dardos que debe tirar cada trabajador         [2500000, 2500000, 2500000, 2500000]
                 .parallel()                                                        // IntStream
-                .flatMap(numeroDeDardos -> IntStream.range(0, numeroDeDardos))     // IntStream     Tengo una "lista" con todos los dardos. [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...]
-                .mapToDouble(dardo -> Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2))) // DoubleStream      De cada dardo calculo su distancia al centro de la diana
-                .filter(distancia -> distancia <= 1)                               // DoubleStream      Me quedo solo con los dardos que han caido dentro de la diana
+                .flatMap(numeroDeDardos -> IntStream.range(0, numeroDeDardos))      // IntStream     Tengo una "lista" con todos los dardos. [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14...]
+                .mapToDouble(dardo -> Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2))) // DoubleStream      De cada dardo calculo su distancia al centro de la diana [0.98, 1.23, 0.1....]
+                .filter(distancia -> distancia <= 1)                                // DoubleStream      Me quedo solo con los dardos que han caido dentro de la diana
                 .count() * 4. / totalDeDardos;                                     // Double            Calculo la estimación de PI
 
         System.out.println("PI es aproximadamente " + OTRA_ESTIMACION_DE_PI);

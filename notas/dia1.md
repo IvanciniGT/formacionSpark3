@@ -76,7 +76,10 @@ CLUSTER DE MAQUINAS
 Hadoop nos ofrece 3 cositas:
 - YARN -> Programa capaz de controlar todas esas maquinitas... y saber si están operativas.. si se han caído...
 - HDFS: Hadoop File System
-  Un sistema de archivos distribuido. Coge un archivo GRANDE y lo parte en trozos (60Mb)
+  Un sistema de archivos distribuido (pensado para trabajar sobre máquinas POSIX). Coge un archivo GRANDE y lo parte en trozos (60Mb)
+    mv       move
+    cp       copy
+    touch 
   Y cada trozo lo guardo en al menos 3 computadores diferentes
 - Modelo de procesamiento MapReduce: Forma de procesar programas que manipulan datos de forma distribuida
 
