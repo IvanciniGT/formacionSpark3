@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 3- PI en Spark">
+    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 3 - Hashtags en Streams">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notas/dia3.md" beforeDir="false" afterPath="$PROJECT_DIR$/notas/dia3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CalcularPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CalcularPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ContarHashtags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContarHashtags.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +80,7 @@
     <configuration name="ContarHashtags" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ContarHashtags" />
       <module name="curso-spark" />
+      <option name="VM_PARAMETERS" value="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694619270483</updated>
       <workItem from="1694619271781" duration="18404000" />
-      <workItem from="1695040382076" duration="13019000" />
+      <workItem from="1695040382076" duration="13766000" />
     </task>
     <task id="LOCAL-00001" summary="Dia 1">
       <option name="closed" value="true" />
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695049611066</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Dia 3 - Hashtags en Streams">
+      <option name="closed" value="true" />
+      <created>1695055754576</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695055754576</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +190,8 @@
     <MESSAGE value="Dia 1" />
     <MESSAGE value="Dia 2" />
     <MESSAGE value="Dia 3- PI en Spark" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dia 3- PI en Spark" />
+    <MESSAGE value="Dia 3 - Hashtags en Streams" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dia 3 - Hashtags en Streams" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

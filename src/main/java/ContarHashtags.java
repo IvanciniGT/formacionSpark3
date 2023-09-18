@@ -1,3 +1,6 @@
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,26 +17,38 @@ public class ContarHashtags {
         List<String> palabrasProhibidas = Arrays.asList(
                 "mierda", "caca");
 
-        // Quiero pasar esto a un Stream de Java
-        tweets.stream() // para cada tweet
-                // Aqui hay que rellenar con código
-                // Reemplazo el "#" por un " #"
-                .map(      tweet -> tweet.replaceAll("#"," #")                      )
-                // Parto el tweet en palabras (usando expresiones regulares)
-                .flatMap(  tweet -> Arrays.stream( tweet.split("[ .,_+(){}!?¿'\"<>/@|&-]+") )   )
-                    // En java, la función que ponemos dentro de un flatMap debe devolver un Stream
-                    // En Spark, la función que ponemos dentro de un flatMap debe devolver un objeto iterable
-                // Me quedo con las palabras que empiezan por "#"
-                .filter(   palabra -> palabra.startsWith("#")                                         )
-                // Convierto a minúsculas
-                .map(     String::toLowerCase                                                        )
-                // Quitar los cuadraditos
-                .map(     hashtag -> hashtag.substring(1)                                  )
-                // Me quedo con las que no contienen palabras de la lista de prohibidas
-                .filter( hashtag -> palabrasProhibidas.stream().filter( palabraIndeseada -> hashtag.contains(palabraIndeseada) ).count() == 0 )
-                // .filter( hashtag -> palabrasProhibidas.stream().noneMatch(hashtag::contains) )
-                .forEach(System.out::println);
 
-        // Al final sacar el resultado por pantalla
+
+        // Abrir una sesión (conexión) con el maestro de un cluster de Apache Spark
+
+        final SparkConf configuracion = new SparkConf().setAppName("CalcularPI") // Identifica mi app en el cluster.
+                .setMaster("local[2]");    // Contra que cluster trabajo
+        // Lo que ésto hace es levantar en mi máquina
+        // un cluster de spark con 1 trabajador
+        // que tiene acceso a 2 cores de mi máquina
+
+        //.setMaster("spark://<NOMBRE|IP>:<PUERTO>");
+        JavaSparkContext conexion= null;
+        try {
+            conexion = new JavaSparkContext(configuracion);
+
+
+            // Quiero pasar esto a un Stream de Java
+            //tweets.stream() // para cada tweet
+            conexion.parallelize(tweets) // para cada tweet
+                    .map(tweet -> tweet.replaceAll("#", " #"))   // Reemplazo el "#" por un " #"
+                    .flatMap(tweet -> Arrays.asList(tweet.split("[ .,_+(){}!?¿'\"<>/@|&-]+")).iterator())   // Parto el tweet en palabras (usando expresiones regulares)
+                    .filter(palabra -> palabra.startsWith("#"))   // Me quedo con las palabras que empiezan por "#"
+                    .map(String::toLowerCase)   // Convierto a minúsculas
+                    .map(hashtag -> hashtag.substring(1))   // Quitar los cuadraditos
+                    .filter(hashtag -> palabrasProhibidas.stream().filter(palabraIndeseada -> hashtag.contains(palabraIndeseada)).count() == 0)   // Me quedo con las que no contienen palabras de la lista de prohibidas
+                    // .filter( hashtag -> palabrasProhibidas.stream().noneMatch(hashtag::contains) )
+                    .foreach(hashtag -> System.out.println(hashtag));                                                          // Al final sacar el resultado por pantalla
+        } finally {
+            // Cierro conexión con el cluster de Spark
+            conexion.close();
+        }
     }
+    // En java, la función que ponemos dentro de un flatMap debe devolver un Stream
+    // En Spark, la función que ponemos dentro de un flatMap debe devolver un objeto iterable
 }
