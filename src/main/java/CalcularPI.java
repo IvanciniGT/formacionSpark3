@@ -49,7 +49,7 @@ public class CalcularPI  {
                 .count() * 4. / totalDeDardos;                                     // Double            Calculo la estimación de PI
 
         System.out.println("PI es aproximadamente " + OTRA_ESTIMACION_DE_PI);
-        // Las funciones lambda son SERIALIZABLES PER SE... y eso me interesa montñoin con Spark.
+        // Las funciones lambda son SERIALIZABLES PER SE... y eso me interesa montón con Spark.
     }
 
     public static double estimarPI( int numeroTotalDeDardos) {

@@ -74,3 +74,130 @@ Es SO que supuestamente cumple con la especificación de UNIX.
 
 GNU: GNU is Not Unix ( Y esto lo hicieron para poder usar el nombre UNIX sin tener que pagarle a AT&T )
 BSD386: Berkeley Software Distribution (386) Éstos si dijeron que tenían un SO UNIX... Y llego AT&T y les metió un paquete gordo
+
+
+---
+
+# Vamos a montar el sistema de Trending Topics de Twitter (X)
+
+Vamos a recibir un montón de tweets (textos).
+Por ahora, fijos... los meteis en código, una lista de textos:
+
+  "En la playa con mis amigos #SummerLove#GoodVibes"
+  "Mierda de verano... estudiando... #cacaDeVerano"
+  "En la playa con mi familia #SummerLove"
+  "Sacando a mi perro #DogsLove"
+
+Al final del recorrido, obtener los hastags más usados.
+Cuidado... igual que vamos a tener una lista con los textos, vamos a tener otra lista con palabras prohibidas en los hashtags:
+  culo
+  pedo
+  caca
+  pis
+  mierda
+
+Queremos los 3 más usados... y el número de veces que aparecen.
+
+Lista con Hashtags prohibidos
+---------------------------------------------------
+  "caca"
+  "culo"
+  "pedo"
+  "pis"
+
+Lista (RDD | Stream)                                                      Lista (RDD|Stream)
+---------------------------------------------------         ===>          ---------------------------------------------------
+"En la playa con mis amigos #SummerLove#GoodVibes"                        "GoodVibes",  2
+"Mierda de verano... estudiando... #CacaDeVerano"                         "SummerLove", 1
+"En la playa con mi familia #GoodVibes"                                   "DogsLove",   1
+"Sacando a mi perro #DogsLove"                                            
+
+
+-----
+Algoritmo:
+Quedarnos solo con los hashtags... pero esto necesitará me temo ... unas cuantas operaciones:
+- En cada tweet/texto:
+  - Si separamos las palabras/entidades/vocablos/hashtags que hay dentro
+
+"En la playa con mis,amigos...(y super-familia)#SummerLove#GoodVibes"
+
+"En"
+"la"
+"playa"
+"con"
+"mis"
+"amigos"
+"#SummerLove"
+"#GoodVibes"
+
+PASO 1: .replaceAll("#"," #")
+PASO 2: .split("[ .,()_;:¡!¿?@<>-]")
+PASO 3: filtrar . Me quedo con los que empiezan por "#"
+
+"#SummerLove"
+"#GoodVibes"
+"#cacaDeVerano"
+"#GoodVibes"
+"#DogsLove"
+
+PASO 4: Convertirlo a mayúsculas o minúsculas
+"#summerlove"
+"#goodvibes"
+"#cacadeverano"
+"#goodvibes"
+"#dogslove"
+
+PASO 5: Filtrar los hashtag que no quiero (los que contengan alguna de las palabras prohibidas)
+"#summerlove"
+"#goodvibes"
+"#goodvibes"
+"#dogslove"
+--- A ver si al menos llegáis hasta aquí
+
+PASO 6: Agrupar por los hashtags y contar
+"#summerlove", 1
+"#goodvibes", 2
+"#dogslove", 1
+
+PASO 7: Ordeno por cantidad
+
+PASO 8: Me quedo con los primeros (3) <--- Mi función de reducción
+
+
+-------
+Lista de textos                                            Lista de Listas de textos
+"En la playa con mis amigos #SummerLove#GoodVibes"      -> flatMap(SPLIT) ->    ["En", "la", "playa", "con", "mis", "amigos", "#SummerLove", "#GoodVibes"]
+"Mierda de verano... estudiando... #cacaDeVerano"                           ["Mierda", "de", "verano", "estudiando", "#cacaDeVerano"]
+"En la playa con mi familia #SummerLove"                                    ["En", "la", "playa", "con", "mi", "familia", "#SummerLove"]
+"Sacando a mi perro #DogsLove"                                              ["Sacando", "a", "mi", "perro", "#DogsLove"]
+
+-------
+
+[ "caca", "pedo" ]
+"cacaDeVeranoPedo"
+
+La quiero quitar... algoritmo
+
+Necesito una función que devuelva true cuando: 
+
+```java
+class TEST {
+  public boolean filtarHashtagsIndeseados(String hashtag) {
+    // Necesito asegurarme que ninguna palabra de la lista está en el hashtag 
+    for (String palabra : listaPalabrasIndeseadas) {
+      if (hashtag.contains(palabra)) {
+        return false;
+      }
+    }
+    return true;
+  }
+  public boolean filtarHashtagsIndeseados2(String hashtag) {
+    // Necesito asegurarme que ninguna palabra de la lista está en el hashtag 
+    listaPalabrasIndeseadas.stream().filter( palabraIndeseada -> hashtag.contains(palabraIndeseada) ).count() == 0;
+  }
+}
+```
+
+"caca" Si me queda al menos 1... la tengo que quitar
+"pedo"
+-------

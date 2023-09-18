@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 2">
-      <change afterPath="$PROJECT_DIR$/notas/dia3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CalcularPISpark.java" afterDir="false" />
+    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 3- PI en Spark">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notas/dia1.md" beforeDir="false" afterPath="$PROJECT_DIR$/notas/dia1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notas/dia3.md" beforeDir="false" afterPath="$PROJECT_DIR$/notas/dia3.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CalcularPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CalcularPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +60,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CalcularPISpark">
+  <component name="RunManager" selected="Application.ContarHashtags">
     <configuration name="CalcularPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CalcularPI" />
       <module name="curso-spark" />
@@ -77,6 +74,13 @@
       <option name="MAIN_CLASS_NAME" value="CalcularPISpark" />
       <module name="curso-spark" />
       <option name="VM_PARAMETERS" value="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContarHashtags" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ContarHashtags" />
+      <module name="curso-spark" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,6 +113,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ContarHashtags" />
       <item itemvalue="Application.CalcularPI" />
       <item itemvalue="Application.CalcularPISpark" />
       <item itemvalue="Application.ProgramacionFuncional" />
@@ -116,6 +121,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ContarHashtags" />
         <item itemvalue="Application.CalcularPISpark" />
         <item itemvalue="Application.CalcularPI" />
         <item itemvalue="Application.TrabajandoConStreams" />
@@ -132,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694619270483</updated>
       <workItem from="1694619271781" duration="18404000" />
-      <workItem from="1695040382076" duration="7448000" />
+      <workItem from="1695040382076" duration="13019000" />
     </task>
     <task id="LOCAL-00001" summary="Dia 1">
       <option name="closed" value="true" />
@@ -158,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694710569873</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Dia 3- PI en Spark">
+      <option name="closed" value="true" />
+      <created>1695049611066</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695049611066</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +181,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dia 1" />
     <MESSAGE value="Dia 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dia 2" />
+    <MESSAGE value="Dia 3- PI en Spark" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dia 3- PI en Spark" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
