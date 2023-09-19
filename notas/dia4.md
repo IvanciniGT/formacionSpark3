@@ -126,7 +126,7 @@ CSV -> read de SparkSQL -> Dataset<Row> -> JavaRDD<Cliente> -> filter(!validacio
     Esto está igualito en el fichero IntroSparkSQL
 
 CSV -> read de SparkSQL -> Dataset<Row> -> JavaRDD<Cliente> -> filter(validacionDNI)
-    join por la columna CP
+    .join("cp") por la columna CP
 JSON -> read de SparkSQL -> Dataset<Row> 
 
 Del resultado me quedo con lo que en el campo CP del JSON sea null
