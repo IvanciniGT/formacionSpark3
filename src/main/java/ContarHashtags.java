@@ -45,6 +45,8 @@ public class ContarHashtags {
                     .filter(hashtag -> palabrasProhibidas.stream().filter(palabraIndeseada -> hashtag.contains(palabraIndeseada)).count() == 0)   // Me quedo con las que no contienen palabras de la lista de prohibidas
                     // .filter( hashtag -> palabrasProhibidas.stream().noneMatch(hashtag::contains) )
                     //.map( hashtag -> new Tuple2<>(hashtag, 1))  // Añadir un 1 a cada hashtag Si hago esto el objeto me devuelve un RDD<Tuple2<String, Integer>>
+
+                    //datos.select("nombre").groupBy("nombre").count().show();
                     .mapToPair( hashtag -> new Tuple2<>(hashtag, 1))  // Añadir un 1 a cada hashtag Si hago esto el objeto me devuelve un PairRDD<String, Integer> que si tiene las funciones que necesito
                     .reduceByKey(Integer::sum)  // Sumar los 1s de cada hashtag
                     .mapToPair( tupla ->  new Tuple2<>(tupla._2, tupla._1))  // Intercambiar el orden de la tupla
