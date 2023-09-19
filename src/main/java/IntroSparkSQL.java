@@ -69,6 +69,4 @@ public class IntroSparkSQL {
         conexion.close();
     }
 
-
-
 }

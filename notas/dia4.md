@@ -95,3 +95,43 @@ Y esa librería viene con funcionalidades para ayudarme a recibir cosas por un p
 
 Por contra, cuando trabajamos con procesos Batch, lo que hacemos no es leer cosas de un Kafka ( o si)...
 Pero también leer cosas de un fichero, de una BBDD, de un API REST, de un FTP, de un SFTP, de un S3, de un HDFS, de un Azure Blob Storage, de un Google Cloud Storage, etc...
+
+
+---
+
+Nos llega un fichero CSV, con estructura:
+NOMBRE, APELLIDOS, CP, DNI
+
+Tenemos otro fichero JSON, con estructura:
+CP, PROVINCIA, CIUDAD
+
+Queremos:
+- Cargar el fichero CSV y el JSON
+- Validar que el DNI de las personas es correcto ("Más o menos")
+- Las personas con DNI inválido, guardarlas en un fichero de parquet llamado "personasInvalidas-DNI"
+- Las personas con CP que no exista en el fichero JSON, guardarlas en un fichero de parquet llamado "personasInvalidas-CP"
+- Las personas con DNI válido y CP existente:
+    - Añadirles el campo Provincia y Ciudad (Extraído del fichero JSON)
+    - Guardarlo en un fichero de parquet llamado "personasValidas"
+
+
+clase Cliente
+    String nombre
+    String apellidos
+    String cp
+    String dni
+    Y una función que valide el DN
+
+CSV -> read de SparkSQL -> Dataset<Row> -> JavaRDD<Cliente> -> filter(!validacionDNI) -> Dataset<Row> -> write de SparkSQL -> Parquet
+    Esto está igualito en el fichero IntroSparkSQL
+
+CSV -> read de SparkSQL -> Dataset<Row> -> JavaRDD<Cliente> -> filter(validacionDNI)
+    join por la columna CP
+JSON -> read de SparkSQL -> Dataset<Row> 
+
+Del resultado me quedo con lo que en el campo CP del JSON sea null
+    -> write de SparkSQL -> Parquet
+
+Del resultado me quedo con lo que en el campo CP del JSON no sea null
+    -> write de SparkSQL -> Parquet
+
