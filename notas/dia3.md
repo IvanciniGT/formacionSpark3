@@ -174,7 +174,7 @@ Lista de textos                                            Lista de Listas de te
 -------
 
 [ "caca", "pedo" ]
-"cacaDeVeranoPedo"
+"cacaDeVerano"
 
 La quiero quitar... algoritmo
 

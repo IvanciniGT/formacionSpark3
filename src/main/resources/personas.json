@@ -1,0 +1,3 @@
+{ "nombre": "Ivan", "apellido": "Osuna", "edad": 44, "email": "ivan@osuna.com", "dni": "12345678A" }
+{ "nombre": "Menchu", "apellido": "García", "edad": 33, "email": "menchu@garcia.com", "dni": "98765432B" }
+{ "nombre": "Federico", "apellido": "Sanchez", "edad": 22, "email": "http://federico.com", "dni": "11111111H" }

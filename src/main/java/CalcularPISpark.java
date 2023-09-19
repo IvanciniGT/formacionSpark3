@@ -21,7 +21,6 @@ public class CalcularPISpark {
         JavaSparkContext conexion= null;
         try {
             conexion = new JavaSparkContext(configuracion);
-
             int totalDeDardos = 1 * 1000 * 1000;
             int numeroDeTrabajadores = 4;
             int totalDeDardosPorTrabajador = totalDeDardos / numeroDeTrabajadores;

@@ -1,5 +1,6 @@
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +44,13 @@ public class ContarHashtags {
                     .map(hashtag -> hashtag.substring(1))   // Quitar los cuadraditos
                     .filter(hashtag -> palabrasProhibidas.stream().filter(palabraIndeseada -> hashtag.contains(palabraIndeseada)).count() == 0)   // Me quedo con las que no contienen palabras de la lista de prohibidas
                     // .filter( hashtag -> palabrasProhibidas.stream().noneMatch(hashtag::contains) )
-                    .foreach(hashtag -> System.out.println(hashtag));                                                          // Al final sacar el resultado por pantalla
+                    //.map( hashtag -> new Tuple2<>(hashtag, 1))  // Añadir un 1 a cada hashtag Si hago esto el objeto me devuelve un RDD<Tuple2<String, Integer>>
+                    .mapToPair( hashtag -> new Tuple2<>(hashtag, 1))  // Añadir un 1 a cada hashtag Si hago esto el objeto me devuelve un PairRDD<String, Integer> que si tiene las funciones que necesito
+                    .reduceByKey(Integer::sum)  // Sumar los 1s de cada hashtag
+                    .mapToPair( tupla ->  new Tuple2<>(tupla._2, tupla._1))  // Intercambiar el orden de la tupla
+                    .sortByKey(false)  // Ordenar por el número de ocurrencias descendente
+                    .take(2) // Es mi función de reducción
+                    .forEach(hashtag -> System.out.println(hashtag));                                                          // Al final sacar el resultado por pantalla
         } finally {
             // Cierro conexión con el cluster de Spark
             conexion.close();
