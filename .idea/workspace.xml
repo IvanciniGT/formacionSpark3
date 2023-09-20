@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Persona.java" afterDir="false" />
+    <list default="true" id="0a34af74-cbfd-49a3-b0ba-499e63fd503d" name="Changes" comment="Dia 4 - Ejercicio propuesto">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ProyectoFinal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cp.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/personasDNI.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ContarHashtags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContarHashtags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IntroSparkSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IntroSparkSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/personas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/personas.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +32,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2VLdPFQ4LfuhFetkgdvaIVlSiss" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,7 +63,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.IntroSparkSQL">
+  <component name="RunManager" selected="Application.ProyectoFinal">
     <configuration name="CalcularPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CalcularPI" />
       <module name="curso-spark" />
@@ -96,9 +97,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrabajandoConStreams" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TrabajandoConStreams" />
+    <configuration name="ProyectoFinal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProyectoFinal" />
       <module name="curso-spark" />
+      <option name="VM_PARAMETERS" value="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,19 +119,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ProyectoFinal" />
       <item itemvalue="Application.IntroSparkSQL" />
       <item itemvalue="Application.ContarHashtags" />
       <item itemvalue="Application.CalcularPI" />
       <item itemvalue="Application.CalcularPISpark" />
-      <item itemvalue="Application.TrabajandoConStreams" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProyectoFinal" />
         <item itemvalue="Application.IntroSparkSQL" />
         <item itemvalue="Application.ContarHashtags" />
         <item itemvalue="Application.CalcularPISpark" />
         <item itemvalue="Application.CalcularPI" />
-        <item itemvalue="Application.TrabajandoConStreams" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +146,7 @@
       <workItem from="1694619271781" duration="18404000" />
       <workItem from="1695040382076" duration="13766000" />
       <workItem from="1695107296602" duration="70000" />
-      <workItem from="1695126850903" duration="11352000" />
+      <workItem from="1695126850903" duration="21137000" />
     </task>
     <task id="LOCAL-00001" summary="Dia 1">
       <option name="closed" value="true" />
@@ -194,7 +196,31 @@
       <option name="project" value="LOCAL" />
       <updated>1695137563622</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Dia 4">
+      <option name="closed" value="true" />
+      <created>1695140346948</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695140346948</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Dia 4 - Ejercicio propuesto">
+      <option name="closed" value="true" />
+      <created>1695142402692</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695142402692</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dia 4 - Ejercicio propuesto">
+      <option name="closed" value="true" />
+      <created>1695142502217</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695142502217</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +232,8 @@
     <MESSAGE value="Dia 3- PI en Spark" />
     <MESSAGE value="Dia 3 - Hashtags en Streams" />
     <MESSAGE value="Dia 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dia 4" />
+    <MESSAGE value="Dia 4 - Ejercicio propuesto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dia 4 - Ejercicio propuesto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
