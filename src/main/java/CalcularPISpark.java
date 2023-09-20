@@ -11,8 +11,9 @@ public class CalcularPISpark {
 
         // Abrir una sesión (conexión) con el maestro de un cluster de Apache Spark
 
-        final SparkConf configuracion = new SparkConf().setAppName("CalcularPI") // Identifica mi app en el cluster.
-                                                     .setMaster("local[2]");    // Contra que cluster trabajo
+        final SparkConf configuracion = new SparkConf().setAppName("CalcularPI"); // Identifica mi app en el cluster.
+                                                     //.setMaster("local[2]");    // Contra que cluster trabajo
+                //.setMaster("spark://3.250.158.56:7077");
                                                      // Lo que ésto hace es levantar en mi máquina
                                                      // un cluster de spark con 1 trabajador
                                                      // que tiene acceso a 2 cores de mi máquina
@@ -21,7 +22,7 @@ public class CalcularPISpark {
         JavaSparkContext conexion= null;
         try {
             conexion = new JavaSparkContext(configuracion);
-            int totalDeDardos = 1 * 1000 * 1000;
+            int totalDeDardos = 1000;
             int numeroDeTrabajadores = 4;
             int totalDeDardosPorTrabajador = totalDeDardos / numeroDeTrabajadores;
 

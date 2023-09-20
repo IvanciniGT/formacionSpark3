@@ -18,7 +18,7 @@ public class ProyectoFinal {
         System.out.println("Creamos la conexión con el cluster de Spark");
         SparkSession conexion = SparkSession.builder()                  // Comenzamos a configurar la conexión
                                             .appName("ProyectoFinal")   // Doy el nombre de mi proyecto en el cluster
-                                            .master("local")            // Contra que cluster trabajo
+                                            //.master("local")            // Contra que cluster trabajo
                                             .getOrCreate();             // He acabado de configurar. Dame la conexión
         System.out.println("Conexión con el cluster de Spark creada");
 
